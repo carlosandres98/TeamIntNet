@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TGL.WebApp.Data;
+using TGL.WebApp.Model;
 
 namespace TGL.WebApp
 {
@@ -33,6 +35,10 @@ namespace TGL.WebApp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<StudentStore>();
+            services.AddSingleton<Student>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

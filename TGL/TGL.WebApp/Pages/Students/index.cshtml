@@ -1,0 +1,56 @@
+﻿@page
+@model TGL.WebApp.Pages.Students.indexModel
+@{
+}
+
+<form method="post">
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Carrer</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.StudentsList)
+        {
+
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        @item.id
+                    </td>
+                    <td>
+                        @item.name
+                    </td>
+                    <td>
+                        @item.age
+
+                    </td>
+                    <td>
+                        @item.carrer
+
+                    </td>
+                    <td>
+                        <button type="submit" asp-page-handler="delete"
+                                asp-route-id="@item.id"
+                                class="btn btn-danger mb-2">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+
+    </table>
+</form>
+
+
+<a class="btn btn-primary" asp-page="Add">Add new student</a>
+
